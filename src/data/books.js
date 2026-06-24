@@ -5,13 +5,51 @@ export const books = [
     author: 'Robert C. Martin',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg',
     status: 'read',
-    essay: `Clean Code is one of those books that changes how you see every line you write afterward. Martin's central claim — that code is read far more than it is written — sounds obvious once stated, but the implications are radical.
+    essay: `One of the first software engineering books I've read. It brings to light the perspective that coding is much more about communication with other programmers than with the computer that processes the code.
 
-The chapter on meaningful names alone rewired how I approach variable naming. I used to optimize for brevity; now I optimize for clarity at the callsite. A name like "d" tells the reader nothing; "elapsedTimeInDays" tells them everything they need without opening the function.
+The now-common knowledge about variable, method, and class naming is all here: is/has in boolean methods, the general convention of using verbs for methods, and so on. It's a book whose content is easy to keep in mind day-to-day, since it affects pretty much every line of code you write. The number of WTFs per minute is a playful measure of code quality, and this book's content is what comes to mind most often when reading bad code.
 
-What I appreciated most was the consistent reminder that code communicates intent to other humans, not just instructions to a machine. The boy scout rule ("leave the code cleaner than you found it") is deceptively simple but, applied consistently, it compounds into a codebase that doesn't accumulate rot.
+A couple of insights I haven't really found elsewhere — perhaps only in Clean Architecture by the same author — is the notion of layers of code complexity. Working with a few objects, calling their methods and passing results forward, is one level of complexity: organized, no branches, simple to follow. Introduce conditionals or most forms of iteration, and you start having to carry a lot of context about how the execution path is affected. Properly separating these responsibilities into complexity layers is one of the things that helps the most in understanding systems. I'd argue most other principles — large or small — follow from this idea: early returns, the single level of abstraction rule, and nearly all code smells have some relation to it.
 
-My one caveat: some of the Java-era examples feel dated, and the test chapter can be taken too far — I've seen teams hide business logic in unit tests chasing 100% coverage. But as a foundation for thinking about craft, this book holds up.`,
+Another insight I enjoyed: the bigger a method name is, the more private and context-specific it should be; the bigger a variable name is, the larger its scope should be. What I liked about this is that most people who read this book become zealots about naming — requiring everything to have the most precise name possible, or extracting intermediate steps into new variables with yet more long and accurate names. This idea helps ground those instincts, showing that good naming is always contextual.
+
+Clean Code also introduces the Single Responsibility Principle, which later becomes part of the SOLID set that Martin expands on more fully in Clean Architecture.
+
+All in all, a book I'd certainly recommend. An experienced professional who has already thought deeply about quality may not take much from it, but knowing its concepts and vocabulary helps in conversations with people who have read it — much the same reason we study design patterns.`,
+  },
+  {
+    id: 'clean-architecture',
+    title: 'Clean Architecture',
+    author: 'Robert C. Martin',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9780134494166-L.jpg',
+    status: 'read',
+    essay: `Clean Architecture covers much of the same ground as Clean Code, but at a larger scale. Instead of the scope of a single method or class, it expands the same questions about quality and responsibility to whole modules and systems. The dependency rule — that source code dependencies must always point inward, toward higher-level policy — is the central idea the entire book builds around.`,
+  },
+  {
+    id: 'clean-coder',
+    title: 'The Clean Coder',
+    author: 'Robert C. Martin',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9780137081073-L.jpg',
+    status: 'read',
+    essay: `The Clean Coder is a very interesting book. Ever since reading it, I've never found anything quite like it. It explores what it means to be a professional, specifically in the field of software development. It discusses the responsibility one has not only to one's craft, but also to one's role — and it criticizes a lot of the clichéd scenarios that happen in the industry: pushing without testing, marking a feature as done without actually verifying it, or deferring tests to a later point that never arrives.
+
+It argues that it is the professional's duty to guarantee that their work performs as expected. It also raises ethical questions — about being a developer at a company that exploits its users, writing code you can't stand behind. A lot of noble ideas that gave me a great deal of respect and pride for this line of work.
+
+It's not about being perfect, though. One example that stuck with me: a professional who is off their game one day — perhaps from poor sleep — noticing that they are making mistakes and overlooking things. Coffee didn't help. What should they do? Keep grinding through the day according to the contract? Or accept that in their current state, they cannot operate at the level expected of them, and that the best course of action is to focus on recovery?
+
+A lot of food for thought, and highly recommended to anyone in the field who hasn't read it yet.`,
+  },
+  {
+    id: 'design-patterns',
+    title: 'Design Patterns',
+    author: 'Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg',
+    status: 'read',
+    essay: `A classic, and the book that introduced the very concept of thinking about code as composable, repeatable building blocks — approaches that just work.
+
+What I value most about it isn't any individual pattern, since some depend heavily on language features, become outdated, or apply only to rare and specific scenarios. What matters is the framing: the discussion of the problem or situation where a pattern becomes viable is often more interesting than the pattern itself. That's what you actually carry forward into your day-to-day work.
+
+The most lasting value of studying design patterns is the shared vocabulary it creates. Standardized approaches make code easier to reason about, and make conversations with other developers about implementation details much faster. That's what I find most worthwhile — not memorizing the patterns, but being able to recognize and name common scenarios.`,
   },
   {
     id: 'pragmatic-programmer',
@@ -19,13 +57,43 @@ My one caveat: some of the Java-era examples feel dated, and the test chapter ca
     author: 'David Thomas & Andrew Hunt',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg',
     status: 'read',
-    essay: `The Pragmatic Programmer is less a book about programming and more a book about being a professional. It sits at the intersection of craft, attitude, and career — and it earns every page of that scope.
+    essay: `Another classic, and a must-read. There's so much here that it's difficult to write an essay that does it justice, since it doesn't limit itself to any single problem or challenge of being a programmer.
 
-The "broken windows" metaphor stuck with me immediately: a single piece of bad code, left unfixed, signals that the codebase is a place where bad code is acceptable. Standards degrade from the edges inward. I now treat any code I'm embarrassed to own as a broken window to fix promptly, not schedule.
+The book reads like a mentor — raising your attention to the psychological aspects that can affect a programmer's work (broken windows, boiling a frog, stone soup), the agency a programmer has over their own career, ways to step outside your comfort zone and find new things to learn even in areas you thought you knew well, how to reason about delivery estimates, how to best approach greenfield projects through the tracer bullet metaphor. And it goes on.
 
-The DRY principle is articulated here more precisely than anywhere else I've read. It's not about avoiding copy-paste — it's about having a single authoritative source for every piece of knowledge in a system. This distinction matters because you can violate DRY without ever duplicating a character.
-
-The 2019 edition updates the language examples nicely. A must-read before any junior engineer gets too comfortable with their first job.`,
+I've read this book more than once, and have heard of people who read it every year because it's that rich. An absolute must.`,
+  },
+  {
+    id: 'refactoring',
+    title: 'Refactoring',
+    author: 'Martin Fowler',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9780134757599-L.jpg',
+    status: 'read',
+    essay: '',
+  },
+  {
+    id: 'phoenix-project',
+    title: 'The Phoenix Project',
+    author: 'Gene Kim, Kevin Behr & George Spafford',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781942788294-L.jpg',
+    status: 'read',
+    essay: '',
+  },
+  {
+    id: 'unicorn-project',
+    title: 'The Unicorn Project',
+    author: 'Gene Kim',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781942788768-L.jpg',
+    status: 'plan-to-read',
+    essay: '',
+  },
+  {
+    id: 'understanding-distributed-systems',
+    title: 'Understanding Distributed Systems',
+    author: 'Roberto Vitillo',
+    coverUrl: '/personal-library/understanding-distributed-systems-cover.jpg',
+    status: 'read',
+    essay: '',
   },
   {
     id: 'designing-data-intensive-apps',
@@ -33,27 +101,13 @@ The 2019 edition updates the language examples nicely. A must-read before any ju
     author: 'Martin Kleppmann',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
     status: 'read',
-    essay: `This is the best technical book I have read in the last five years, without qualification. Kleppmann writes with the rare combination of depth and clarity that makes complex distributed systems concepts genuinely accessible.
-
-The section on replication alone — covering leader-follower, multi-leader, and leaderless approaches — is worth the price of the book. I had used these systems for years before reading this; I understood them for the first time after.
-
-What elevates it above a textbook is the consistent attention to trade-offs. Every design decision is examined through the lens of what you gain and what you give up. There are no silver bullets presented, only honest analyses of real constraints.
-
-The chapters on stream processing and the log-structured nature of event sourcing gave me a new mental model that I now reach for constantly when thinking about data architecture. Required reading for anyone building systems that handle meaningful amounts of data.`,
-  },
-  {
-    id: 'structure-interpretation',
-    title: 'Structure and Interpretation of Computer Programs',
-    author: 'Abelson & Sussman',
-    coverUrl: 'https://covers.openlibrary.org/b/isbn/9780262510875-L.jpg',
-    status: 'plan-to-read',
     essay: '',
   },
   {
-    id: 'a-philosophy-of-software-design',
-    title: 'A Philosophy of Software Design',
-    author: 'John Ousterhout',
-    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781732102200-L.jpg',
+    id: 'software-architecture-hard-parts',
+    title: 'Software Architecture: The Hard Parts',
+    author: 'Neal Ford, Mark Richards, Pramod Sadalage & Zhamak Dehghani',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781492086895-L.jpg',
     status: 'plan-to-read',
     essay: '',
   },
@@ -66,28 +120,20 @@ The chapters on stream processing and the log-structured nature of event sourcin
     essay: '',
   },
   {
+    id: 'devops-handbook',
+    title: 'The DevOps Handbook',
+    author: 'Gene Kim, Jez Humble, Patrick Debois & John Willis',
+    coverUrl: 'https://covers.openlibrary.org/b/isbn/9781942788003-L.jpg',
+    status: 'plan-to-read',
+    essay: '',
+  },
+  {
     id: 'mythical-man-month',
     title: 'The Mythical Man-Month',
     author: 'Frederick P. Brooks Jr.',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780201835953-L.jpg',
-    status: 'read',
-    essay: `Few books written in 1975 remain this relevant. Brooks' central thesis — that adding manpower to a late software project makes it later — was heresy at the time and is still violated daily by managers who haven't read it.
-
-The essay that gives the book its title is brilliant, but the one I return to most is "No Silver Bullet." Brooks argues that there is no single development innovation that will yield an order-of-magnitude improvement in productivity, reliability, or simplicity. Every generation of the industry rediscovers this the hard way with each new paradigm that promises to change everything.
-
-What ages less well is the implicit assumption that software projects are always large, staffed endeavors. The solo and small-team dynamics that define so much modern work aren't really addressed. But as a diagnosis of why large software efforts fail — coordination cost, conceptual integrity, second-system syndrome — this remains definitive.`,
-  },
-  {
-    id: 'refactoring',
-    title: 'Refactoring',
-    author: 'Martin Fowler',
-    coverUrl: 'https://covers.openlibrary.org/b/isbn/9780134757599-L.jpg',
-    status: 'read',
-    essay: `Refactoring gave me a vocabulary I didn't know I was missing. Before reading it, I would describe improvements to a codebase vaguely — "cleaning up," "tidying," "making it clearer." After, I could name exactly what I was doing: Extract Function, Replace Temp with Query, Introduce Parameter Object.
-
-Having precise names for transformations matters more than it sounds. It makes code review conversations faster, it lets you communicate intent in a commit message, and it helps you think more clearly about what you're actually doing versus what you think you're doing.
-
-The second edition's JavaScript examples feel more current than the Java of the first. The catalogue format — each refactoring with a motivation, mechanics, and example — makes it as useful as a reference as it is a cover-to-cover read. I've returned to individual entries many more times than I've reread the whole thing.`,
+    status: 'plan-to-read',
+    essay: '',
   },
   {
     id: 'domain-driven-design',
