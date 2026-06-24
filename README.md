@@ -1,16 +1,28 @@
-# React + Vite
+# Personal Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visual bookshelf cataloguing the software engineering books I've read — and the ones on my list. Built as a side project to pair my reading habit with short-form writing.
 
-Currently, two official plugins are available:
+**Live site → [gustmmer.github.io/personal-library](https://gustmmer.github.io/personal-library)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What it does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Displays books as a forward-facing shelf, grouped by row
+- Filter between **All**, **Read**, and **Plan to Read**
+- Click any book to open an essay I wrote about it
+- Plan-to-read books are marked with an amber corner ribbon
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** + **Vite** — no framework, no router, plain component state
+- **CSS Modules** — scoped styles, no utility classes
+- **CSS custom properties** — all design tokens in one place
+- No backend — books and essays live in `src/data/books.js`
+
+## Running locally
+
+```bash
+npm install
+npm run dev
+```
