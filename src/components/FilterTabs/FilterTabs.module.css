@@ -1,0 +1,51 @@
+.tabs {
+  position: relative;
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.25rem;
+  background: var(--tabs-bg);
+  border: 1px solid var(--tabs-border);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.pill {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  border-radius: 6px;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.tab {
+  position: relative; /* sits above the pill */
+  padding: 0.45rem 1.1rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tab.active {
+  color: var(--color-text);
+}
+
+.tab:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}

@@ -1,0 +1,55 @@
+/* ── Design tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Accent / focus */
+  --color-accent:      #b8701a;
+  --color-focus:       #1e3a5f;
+
+  /* Text */
+  --color-text:        #1a0e04;
+  --color-text-muted:  #4e3418;
+
+  /* Typography */
+  --font-body: 'Georgia', serif;
+  --font-ui:   system-ui, sans-serif;
+
+  /* Layout */
+  --card-width: 130px;
+
+  /* Birch wood — page & shelves */
+  --wood-page:        #e8dcc4;
+  --wood-header:      #ddd0b0;
+  --wood-shelf-back:  #e2d5b8;
+  --wood-lip-hi:      #f5edd8;
+  --wood-lip-mid-hi:  #d4a870;
+  --wood-lip-mid:     #c0935a;
+  --wood-lip-mid-lo:  #9a7040;
+  --wood-lip-lo:      #7a5228;
+
+  /* Filter tabs */
+  --tabs-bg:     #c8bc9e;
+  --tabs-border: #b0a484;
+  --pill-bg:     #a8946e;
+  --pill-border: #9a8460;
+
+  /* Essay modal */
+  --modal-bg:         #f2e8d4;
+  --modal-border:     #c8b898;
+  --modal-shadow:     rgba(60, 30, 0, 0.35);
+  --modal-backdrop:   rgba(100, 70, 30, 0.45);
+
+  /* BookCard */
+  --cover-placeholder: #c8b898;
+}
+
+/* ── Base reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--wood-page);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+}
