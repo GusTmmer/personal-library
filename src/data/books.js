@@ -81,7 +81,26 @@ An absolute must — not for any one idea, but for all of them together.`,
     author: 'Martin Fowler',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780134757599-L.jpg',
     status: 'read',
-    essay: '',
+    essay: `From the first chapter, it seems this book played a strong role in establishing the definition of refactoring. By the time I got to read it, the concept was already well established — but going through the original definition was still enriching: refactoring means moving code toward a different structure while preserving behavior, in steps small enough that you can be confident nothing is breaking. This doesn't dismiss the need for tests, but the emphasis on those small steps was compelling — not unlike the principle behind Atomic Habits.
+
+The main substance of this book is the code smells catalogue. The refactoring strategies make up the rest — named processes broken into small, mechanical steps. In practice, the steps are often so obvious and the outcome so clear that the named strategy doesn't add much; it felt like mandatory content more than genuine insight.
+
+The code smells were where I found the most to take away. Many resonated immediately from experience: Primitive Obsession, Temporary Field, Speculative Generality, Repeated Switches, Data Clumps, and others.
+
+A good book overall, but most of the refactoring strategies catalogue can be skipped.`,
+  },
+  {
+    id: 'understanding-distributed-systems',
+    title: 'Understanding Distributed Systems',
+    author: 'Roberto Vitillo',
+    coverUrl: '/personal-library/understanding-distributed-systems-cover.jpg',
+    status: 'read',
+    essay: `A structured survey of the distributed systems problem space. Where Designing Data-Intensive Applications goes deep on the internals of storage and data processing, this book takes a wider view — organizing the material around five concerns: communication, coordination, scalability, resiliency, and maintainability. That framing alone is useful. Before getting into any one topic, you have a map of the territory.
+
+The resiliency section stands out for its practical focus: patterns like circuit breakers, timeouts, retries, and backpressure are explained clearly enough to reason about rather than just recognize by name. The coordination material — failure detection, leader election, replication — covers the kind of content that's hard to find concentrated in one place.
+
+It's a well-paced read that doesn't overwhelm. As an introduction to the distributed systems landscape, it does its job well — and makes DDIA more rewarding once you follow up with it.
+`,
   },
   {
     id: 'phoenix-project',
@@ -89,7 +108,15 @@ An absolute must — not for any one idea, but for all of them together.`,
     author: 'Gene Kim, Kevin Behr & George Spafford',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9781942788294-L.jpg',
     status: 'read',
-    essay: '',
+    essay: `The book I didn't know I needed.
+
+Having already read books on operational excellence and having faced job experiences that looked a lot like what's portrayed here, it was striking to see how much management can and does affect an engineer's day-to-day. This book made me more sensitive to company processes, communication structures, and where to look for constraints in them.
+
+It helped me realize something obvious in retrospect: showing up and doing your work can be entirely useless if the company's interests aren't aligned around it. Teams get siloed and end up prioritizing things that don't matter to the business. Alternative solutions go unfound — not because they don't exist, but because of miscommunication or a loss of focus on what a project is actually supposed to solve.
+
+The scale of management's impact became clear, and it was the first time I seriously thought about pursuing a management role. It doesn't matter how good an engineer you are if the management layer is broken.
+
+Following the Three Ways take shape through a narrative rather than as theory made them land differently. The main character's anxiety was hard not to share.`,
   },
   {
     id: 'unicorn-project',
@@ -100,20 +127,18 @@ An absolute must — not for any one idea, but for all of them together.`,
     essay: '',
   },
   {
-    id: 'understanding-distributed-systems',
-    title: 'Understanding Distributed Systems',
-    author: 'Roberto Vitillo',
-    coverUrl: '/personal-library/understanding-distributed-systems-cover.jpg',
-    status: 'read',
-    essay: '',
-  },
-  {
     id: 'designing-data-intensive-apps',
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
     status: 'read',
-    essay: '',
+    essay: `One of the best books I've read on software engineering. I regret putting it off for as long as I did, thinking it would be too dense or difficult to keep up with. In the end, it was very approachable and I really enjoyed it.
+
+The greatest benefit it provided me was confidence. I had studied system design quite extensively before reading this book, but given its reputation I couldn't help but fear I was still missing a lot. I still learned a great deal — and there were topics I couldn't help but wonder how someone can work professionally in a distributed system without knowing. Most notably, modes of transaction isolation and how the main relational databases differ in their default configuration for that. When I read that chapter, I was in awe. Knowing how transaction isolation is actually implemented was fantastic.
+
+It's a book that delves into the implementation details of all the technologies it covers — OLAP systems, storage engines, replication, and more — making you realize there's no magic after all — these solutions aren't actually complex, they're simple, but simple in a smart and effective way. That was one of the greatest values I personally took from it.
+
+It just goes to show why this book has the reputation it does. A mandatory read for any software engineer.`,
   },
   {
     id: 'software-architecture-hard-parts',
@@ -129,7 +154,15 @@ An absolute must — not for any one idea, but for all of them together.`,
     author: 'Michael Feathers',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780131177055-L.jpg',
     status: 'read',
-    essay: '',
+    essay: `Essentially the Refactoring book applied to an adversarial scenario — one where you don't have full control over the code at any given moment.
+
+It opens with a memorable definition: legacy code is code without tests. The implication follows quickly — it's entirely possible to write legacy code on day one.
+
+The central argument is that you sometimes have to take a step back to move two steps forward. Many of the strategies involve working around legacy code rather than through it, but the real goal is always the same: make it testable. Only once tests enforce the expected behavior do you have the freedom to change anything safely.
+
+Worth noting: tests rarely guarantee that something works — they prove that things don't break. Exhaustive tests are rare, and the book accounts for that reality too.
+
+If your job has a code-improvement culture and you're facing dense legacy code, there's something useful here for you.`,
   },
   {
     id: 'monolith-to-microservices',

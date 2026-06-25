@@ -5,7 +5,7 @@ import BookCard from './components/BookCard/BookCard'
 import EssayModal from './components/EssayModal/EssayModal'
 import styles from './App.module.css'
 
-const BOOKS_PER_ROW = 7
+const BOOKS_PER_ROW = 8
 
 function chunkArray(arr, size) {
   const rows = []
@@ -17,8 +17,12 @@ export default function App() {
   const [filter, setFilter] = useState('all')
   const [selectedBook, setSelectedBook] = useState(null)
 
+  const sortedBooks = [...books].sort((a, b) =>
+    a.status === 'plan-to-read' && b.status !== 'plan-to-read' ? 1 : b.status === 'plan-to-read' && a.status !== 'plan-to-read' ? -1 : 0
+  )
+
   const filteredBooks = filter === 'all'
-    ? books
+    ? sortedBooks
     : books.filter((b) => b.status === filter)
 
   const shelfRows = chunkArray(filteredBooks, BOOKS_PER_ROW)
