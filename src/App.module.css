@@ -62,13 +62,13 @@
 
 /* ── shelves area ── */
 .shelves {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 2rem 3rem;
+  padding: 0 0 3rem;
 }
 
 /* ── one shelf row ── */
 .shelfRow {
+  width: var(--shelf-width);
+  margin: 0 auto;
   padding-top: 2.5rem;
   background:
     linear-gradient(180deg, rgba(0,0,0,.12) 0%, transparent 20%),

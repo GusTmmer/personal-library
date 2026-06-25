@@ -12,8 +12,9 @@
   --font-body: 'Georgia', serif;
   --font-ui:   system-ui, sans-serif;
 
-  /* Layout */
-  --card-width: 130px;
+  /* Layout — shelf width = 7 cards + 6 gaps + left/right book padding */
+  --card-width:   130px;
+  --shelf-width:  calc(var(--card-width) * 7 + 1.2rem * 6 + 1.5rem * 2);
 
   /* Birch wood — page & shelves */
   --wood-page:        #e8dcc4;
