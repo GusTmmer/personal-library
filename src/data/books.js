@@ -9,7 +9,7 @@ export const books = [
 
 The now-common knowledge about variable, method, and class naming is all here: is/has in boolean methods, the general convention of using verbs for methods, and so on. It's a book whose content is easy to keep in mind day-to-day, since it affects pretty much every line of code you write. The number of WTFs per minute is a playful measure of code quality, and this book's content is what comes to mind most often when reading bad code.
 
-A couple of insights I haven't really found elsewhere — perhaps only in Clean Architecture by the same author — is the notion of layers of code complexity. Working with a few objects, calling their methods and passing results forward, is one level of complexity: organized, no branches, simple to follow. Introduce conditionals or most forms of iteration, and you start having to carry a lot of context about how the execution path is affected. Properly separating these responsibilities into complexity layers is one of the things that helps the most in understanding systems. I'd argue most other principles — large or small — follow from this idea: early returns, the single level of abstraction rule, and nearly all code smells have some relation to it.
+One insight I haven't really found elsewhere is what turns out to be the Single Level of Abstraction Principle (SLAP): each function should operate at one level of complexity only, never mixing high-level orchestration with low-level detail.
 
 Another insight I enjoyed: the bigger a method name is, the more private and context-specific it should be; the bigger a variable name is, the larger its scope should be. What I liked about this is that most people who read this book become zealots about naming — requiring everything to have the most precise name possible, or extracting intermediate steps into new variables with yet more long and accurate names. This idea helps ground those instincts, showing that good naming is always contextual.
 
@@ -23,7 +23,11 @@ All in all, a book I'd certainly recommend. An experienced professional who has 
     author: 'Robert C. Martin',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780134494166-L.jpg',
     status: 'read',
-    essay: `Clean Architecture covers much of the same ground as Clean Code, but at a larger scale. Instead of the scope of a single method or class, it expands the same questions about quality and responsibility to whole modules and systems. The dependency rule — that source code dependencies must always point inward, toward higher-level policy — is the central idea the entire book builds around.`,
+    essay: `Clean Architecture expands the ideas of Clean Code to the level of entire systems. Its central argument is the dependency rule: source code dependencies must always point inward, toward higher-level policy. Frameworks, databases, and UIs are details — volatile, changeable, replaceable. Business logic is the core, and it should know nothing about the layers surrounding it.
+
+The book gives the SOLID principles their full treatment — each applied at an architectural scale rather than at the class level — and introduces principles for managing component cohesion and coupling. It argues that a good architecture defers decisions: the choice of database, framework, or delivery mechanism should be a detail you can change late, not a constraint baked into the core.
+
+Honestly, the book didn't land with as much impact as Clean Code did. Many of the ideas had already reached me through Bob Martin's Clean Code video series, offered by the company I worked at, which I found more engaging than the written format. When the content is already familiar, the book reads more like revision than revelation. For someone encountering these ideas for the first time, it would probably hit harder.`,
   },
   {
     id: 'clean-coder',
@@ -45,11 +49,11 @@ A lot of food for thought, and highly recommended to anyone in the field who has
     author: 'Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg',
     status: 'read',
-    essay: `A classic, and the book that introduced the very concept of thinking about code as composable, repeatable building blocks — approaches that just work.
+    essay: `A classic, and the book that introduced the concept of repeatable design — approaches to common problems that have been named, documented, and refined enough to be reused.
 
-What I value most about it isn't any individual pattern, since some depend heavily on language features, become outdated, or apply only to rare and specific scenarios. What matters is the framing: the discussion of the problem or situation where a pattern becomes viable is often more interesting than the pattern itself. That's what you actually carry forward into your day-to-day work.
+I've encountered a fair number of these patterns in production codebases and used several myself. But I've also seen them misapplied — introduced far too early in a feature's development, before the shape of the problem is even clear, making the code feel heavy and over-engineered before it's done anything useful. That observation reinforced something the book itself warns about but that's easy to forget in practice: these are tools, not rules. Reaching for a pattern prematurely, just because the scenario looks familiar, is its own kind of mistake.
 
-The most lasting value of studying design patterns is the shared vocabulary it creates. Standardized approaches make code easier to reason about, and make conversations with other developers about implementation details much faster. That's what I find most worthwhile — not memorizing the patterns, but being able to recognize and name common scenarios.`,
+What I carry forward is mostly the vocabulary and the framing. Being able to name a pattern — to say "this is a Strategy" or "this is an Observer" — makes conversations with other developers faster and makes code easier to reason about when you recognize the structure. The most lasting value of this book is that shared language, not any specific implementation to follow by the letter.`,
   },
   {
     id: 'pragmatic-programmer',
@@ -57,11 +61,19 @@ The most lasting value of studying design patterns is the shared vocabulary it c
     author: 'David Thomas & Andrew Hunt',
     coverUrl: 'https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg',
     status: 'read',
-    essay: `Another classic, and a must-read. There's so much here that it's difficult to write an essay that does it justice, since it doesn't limit itself to any single problem or challenge of being a programmer.
+    essay: `The difficulty with writing about this book is that it doesn't have one central idea — it has dozens, and they work by accumulation rather than by any single revelation. That makes it hard to do justice to in an essay, but also explains why I've read it more than once.
 
-The book reads like a mentor — raising your attention to the psychological aspects that can affect a programmer's work (broken windows, boiling a frog, stone soup), the agency a programmer has over their own career, ways to step outside your comfort zone and find new things to learn even in areas you thought you knew well, how to reason about delivery estimates, how to best approach greenfield projects through the tracer bullet metaphor. And it goes on.
+One idea that proved itself over time in an unexpected way: the value of plain text. Until I read this, I hadn't given plain-text files much thought. The argument is that plain text is the most durable and universal format — it doesn't depend on tools, versions, or platforms. Years later, when AI assistants emerged and proved most capable on codebases and data that could be read as text, that idea clicked again in a new context.
 
-I've read this book more than once, and have heard of people who read it every year because it's that rich. An absolute must.`,
+The tracer bullet metaphor changed how I approach greenfield work. I used to be a top-down person — define the full structure first, then fill it in. The tracer bullet approach suggests building a thin, end-to-end slice of the system first: something that goes all the way through, even if incomplete. It surfaces assumptions you didn't know you were making far earlier than a top-down approach ever would.
+
+The broken window theory put words to something I had felt many times but couldn't name: the file in a codebase so bad that nobody cares how it evolves anymore. People just throw things at it because the standard is already gone. Once you've named it, you see it everywhere — and you become much more careful about being the one who breaks the first window.
+
+Stone soup is a negotiation metaphor I've thought back to in past discussions — conversations where leading with something small, rather than asking for full buy-in upfront, might have led to a very different outcome.
+
+The boiling frog is about the danger of gradual change going unnoticed. A frog dropped in boiling water jumps out; a frog in water that slowly heats up doesn't register the threat until it's too late. After reading this — and a few other books about operational excellence — I've become much more sensitive to detecting slow-moving problems in processes and the status quo. One pattern I now watch for: a part of the system being worked almost exclusively by a single engineer, without enough context-sharing happening around it. On the surface it looks fine. The work gets done, nothing is on fire. But the knowledge concentration is a quiet risk — to the team's resilience, and sometimes to the company's interests if that person leaves or moves on. The frog metaphor is a useful lens for exactly these situations: nothing feels urgent precisely because the temperature has been rising slowly the whole time.
+
+An absolute must — not for any one idea, but for all of them together.`,
   },
   {
     id: 'refactoring',
