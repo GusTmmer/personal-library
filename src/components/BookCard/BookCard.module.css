@@ -68,17 +68,39 @@
   display: block;
 }
 
-/* Amber corner ribbon for plan-to-read */
+/* Amber corner strip for plan-to-read — a trapezoid band that leaves the
+   cover's actual corner visible, rather than a triangle that covers it */
 .ribbon {
   position: absolute;
   top: 0;
   right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 36px 36px 0;
-  border-color: transparent var(--color-accent) transparent transparent;
+  width: 74px;
+  height: 74px;
+  /* Brighter, more saturated version of --color-accent's own hue (~33°),
+     pushed to ~40% mix — the brightest this hue can go while keeping the
+     white label above the 3:1 bold-text contrast floor (≈3.07:1 here;
+     contrast drops below 3:1 past roughly 44%). */
+  background: color-mix(in srgb, var(--color-accent) 60%, #ff9518 40%);
+  clip-path: polygon(0 0, 38% 0, 100% 62%, 100% 100%);
   z-index: 2;
+}
+
+/* Positioned at the midpoint of the band's centerline, then centered on
+   itself via translate(-50%, -50%) so the text can't drift toward either
+   clipped edge regardless of its rendered width. */
+.ribbon::after {
+  content: 'Plan to Read';
+  position: absolute;
+  left: 44px;
+  top: 30px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 1.5px rgba(26, 14, 4, 0.45);
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .meta {
